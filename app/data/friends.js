@@ -1,7 +1,6 @@
-friendsArray = [
-
+var friendsArray = [
     {
-        name: "Ahmed", 
+        "name": "Ahmed", 
         "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
         "scores":[
             5,
@@ -12,7 +11,7 @@ friendsArray = [
     },
     
     {
-        name: "jUAN", 
+        "name": "Juan", 
         "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
         "scores":[
             2,
@@ -23,7 +22,7 @@ friendsArray = [
     },
 
     {
-        name: "Jacob", 
+        "name": "Jacob", 
         "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
         "scores":[
             1,
@@ -33,3 +32,5 @@ friendsArray = [
         ]
     }
 ];
+
+module.exports = friendsArray;
