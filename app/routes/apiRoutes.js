@@ -1,17 +1,17 @@
 var friends = require("../data/friends");
+var express = require("express");
+
 
 module.exports = function(app) {
 
 app.get("/api/friends", function(req, res) {
-    res.json(friends);
+    return res.json(friends);
 });
 
-app.get("api/friends/:friend", function(req, res) {
+app.get("/api/friends/:friend", function(req, res) {
         var chosen = req.params.friend;
-      
-        console.log(chosen);
-      
-        for (var i = 0; i < friends.length; i++) {
+    
+        for (var i=0; i<friends.length; i++) {
           if (chosen === friends[i].name) {
             return res.json(friends[i]);
           }

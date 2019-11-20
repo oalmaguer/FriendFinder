@@ -9,7 +9,7 @@ app.get("/survey", function(req, res) {
 
 
 app.get("*", function(req, res) {
-    console.log("Not found");
+    res.sendFile(path.join(__dirname, "../public/home.html"));
 })
 
 }
