@@ -58,13 +58,13 @@
 
               <button type="button" class="btn btn-primary btn-lg btn-block mb-5 mt-5">Send Answers</button>
 
-              <a href="#">Api List | </a>
+              <a href="/api/friends" target="__blank">Api List | </a>
               <a href="#">Github Repo</a>
     </div>
 
     <script>
 
-    
+
     
     $(".btn").on("click", function(event) {
       event.preventDefault();
@@ -73,22 +73,30 @@
       var movie = $("#movie").val().trim();
       var tv = $("#tv").val().trim();
       var cellphone = $("#cellphone").val().trim();
+
       friendsArray.push(parseInt(pokemon, 10), parseInt(movie,10), parseInt(tv, 10), parseInt(cellphone, 10));
-      var arrayShow = friendsArray.map(Number);
+
+      
+
+
       
       var newFriend = {
         name: $("#name").val().trim(),
         photo: $("#photo").val().trim(),
-        scores: arrayShow.map(Number)
+        scores: friendsArray.map(Number)
       }
+
+      console.log(JSON.stringify(friendsArray));
+     
+      console.log(JSON.stringify(newFriend));
 
       $.post("/api/friends", newFriend)
       .then(function(data) {
-        console.log("survey.html", data);
+        
         alert("added friend");
       });
-      console.log(newFriend);
 
+       
       
     });
 
