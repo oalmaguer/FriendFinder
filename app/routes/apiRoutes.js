@@ -43,6 +43,9 @@ app.post("/api/friends", function(req,res) {
         var total = 0;
         var total2 = 0;
         var total3 = 0;
+        var total4 = 0;
+        var total5 = 0;
+        
         var bestFriend = [];
 
     for (var i=0;i<friends.length;i++) {
@@ -78,7 +81,32 @@ for (var i=0;i<friends.length;i++) {
 }
 console.log("3 "+total3);
 
-bestFriend.push(total, total2, total3);
+for (var i=0;i<friends.length;i++) {
+    if (friends[3].scores[i] > newFriend.scores[i]) {
+        total3 += friends[3].scores[i] - newFriend.scores[i];
+       
+    } else if (friends[3].scores[i] < newFriend.scores[i]){
+        total3 += newFriend.scores[i] - friends[3].scores[i] 
+       
+    }
+}
+console.log("4 "+total4);
+
+for (var i=0;i<friends.length;i++) {
+    if (friends[4].scores[i] > newFriend.scores[i]) {
+        total3 += friends[4].scores[i] - newFriend.scores[i];
+       
+    } else if (friends[4].scores[i] < newFriend.scores[i]){
+        total3 += newFriend.scores[i] - friends[4].scores[i] 
+       
+    }
+}
+
+console.log("5 "+total5);
+
+
+
+bestFriend.push(total, total2, total3, total4, total5);
 
 
 var min = Math.min.apply(Math, bestFriend);
@@ -93,6 +121,12 @@ console.log(`Min num is ${min}`);
     } else if (min == total3) {
         var bff = {name: `${friends[2].name}`,
                      photo: `${friends[2].photo}`}
+    } else if (min == total4) {
+        var bff = {name: `${friends[3].name}`,
+                     photo: `${friends[3].photo}`}
+    } else if (min == total5) {
+        var bff = {name: `${friends[4].name}`,
+                     photo: `${friends[4].photo}`}
     }
 nofriends.push(bff);
 console.log(bff);

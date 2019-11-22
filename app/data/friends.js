@@ -30,7 +30,30 @@ var friendsArray = [
             1,
             4,
         ]
+    },
+
+    {
+        "name": "Alejandro", 
+        "photo":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/152.png",
+        "scores":[
+            1,
+            1,
+            3,
+            6,
+        ]
+    },
+
+    {
+        "name": "Luis", 
+        "photo":"https://static.pokemonpets.com/images/monsters-images-800-800/106-Hitmonlee.png",
+        "scores":[
+            3,
+            3,
+            4,
+            5,
+        ]
     }
+    
 ];
 
 module.exports = friendsArray;
