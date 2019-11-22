@@ -8,8 +8,8 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("../FriendFinder/app/routes/apiRoutes")(app);
+require("../FriendFinder/app/routes/htmlRoutes")(app);
 
 
 app.listen(PORT, function() {
