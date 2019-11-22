@@ -83,10 +83,10 @@ console.log("3 "+total3);
 
 for (var i=0;i<friends.length;i++) {
     if (friends[3].scores[i] > newFriend.scores[i]) {
-        total3 += friends[3].scores[i] - newFriend.scores[i];
+        total4 += friends[3].scores[i] - newFriend.scores[i];
        
     } else if (friends[3].scores[i] < newFriend.scores[i]){
-        total3 += newFriend.scores[i] - friends[3].scores[i] 
+        total4 += newFriend.scores[i] - friends[3].scores[i] 
        
     }
 }
@@ -94,10 +94,10 @@ console.log("4 "+total4);
 
 for (var i=0;i<friends.length;i++) {
     if (friends[4].scores[i] > newFriend.scores[i]) {
-        total3 += friends[4].scores[i] - newFriend.scores[i];
+        total5 += friends[4].scores[i] - newFriend.scores[i];
        
     } else if (friends[4].scores[i] < newFriend.scores[i]){
-        total3 += newFriend.scores[i] - friends[4].scores[i] 
+        total5 += newFriend.scores[i] - friends[4].scores[i] 
        
     }
 }

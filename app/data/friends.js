@@ -4,9 +4,11 @@ var friendsArray = [
         "photo":"https://miro.medium.com/max/343/1*Hxptm5gIRc3HyYXzw5nfpw.png",
         "scores":[
             1,
+            1,
             3,
-            5,
-            7,
+            4,
+            2
+            
         ]
     },
     
@@ -14,10 +16,12 @@ var friendsArray = [
         "name": "Juan", 
         "photo":"https://miro.medium.com/max/302/1*KuSu6ZTyLAcRDwOsI9ZzZA.png",
         "scores":[
-            3,
+            2,
+            2,
+            2,
             1,
-            7,
-            1,
+            4
+            
         ]
     },
 
@@ -29,6 +33,8 @@ var friendsArray = [
             2,
             1,
             4,
+            1
+            
         ]
     },
 
@@ -36,10 +42,12 @@ var friendsArray = [
         "name": "Alejandro", 
         "photo":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/152.png",
         "scores":[
-            1,
+            2,
+            4,
             1,
             3,
-            6,
+            1
+            
         ]
     },
 
@@ -51,6 +59,8 @@ var friendsArray = [
             3,
             4,
             5,
+            1
+            
         ]
     }
     

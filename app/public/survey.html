@@ -27,7 +27,9 @@
                 <option selected>Choose...</option>
                 <option value="1">Nothing...(1)</option>
                 <option value="2">Meh...(2)</option>
-                <option value="3">I love it...(3)</option>
+                <option value="3">Okay...(3)</option>
+                <option value="4">Great...(4)</option>
+                <option value="5">I love it!...(5)</option>
               </select>
 
               <h2>Question 2</h2>
@@ -36,7 +38,9 @@
                 <option selected>Choose...</option>
                 <option value="1">Nothing...(1)</option>
                 <option value="2">Meh...(2)</option>
-                <option value="3">I love it...(3)</option>
+                <option value="3">Okay...(3)</option>
+                <option value="4">Great...(4)</option>
+                <option value="5">I love it!...(5)</option>
               </select>
 
               <h2>Question 3</h2>
@@ -45,16 +49,31 @@
                 <option selected>Choose...</option>
                 <option value="1">Nothing...(1)</option>
                 <option value="2">Meh...(2)</option>
-                <option value="3">I love it...(3)</option>
+                <option value="3">Okay...(3)</option>
+                <option value="4">Great...(4)</option>
+                <option value="5">I love it!...(5)</option>
               </select>
 
               <h2>Question 4</h2>
         <p>Do you like reading books?</p>
-        <select class="custom-select" id="cellphone">
+        <select class="custom-select" id="books">
                 <option selected>Choose...</option>
                 <option value="1">Nothing...(1)</option>
                 <option value="2">Meh...(2)</option>
-                <option value="3">I love it...(3)</option>
+                <option value="3">Okay...(3)</option>
+                <option value="4">Great...(4)</option>
+                <option value="5">I love it!...(5)</option>
+              </select>
+
+              <h2>Question 5</h2>
+        <p>Do you like soccer?</p>
+        <select class="custom-select" id="soccer">
+                <option selected>Choose...</option>
+                <option value="1">Nothing...(1)</option>
+                <option value="2">Meh...(2)</option>
+                <option value="3">Okay...(3)</option>
+                <option value="4">Great...(4)</option>
+                <option value="5">I love it!...(5)</option>
               </select>
 
               <button type="button" class="btn btn-primary btn-lg btn-block mb-5 mt-5" data-toggle="modal" data-target="#exampleModal">Send Answers</button>
@@ -72,9 +91,10 @@
       var pokemon = $("#pokemon").val().trim();
       var movie = $("#movie").val().trim();
       var tv = $("#tv").val().trim();
-      var cellphone = $("#cellphone").val().trim();
+      var books = $("#books").val().trim();
+      var soccer = $("#soccer").val().trim();
 
-      friendsArray.push(parseInt(pokemon, 10), parseInt(movie,10), parseInt(tv, 10), parseInt(cellphone, 10));
+      friendsArray.push(parseInt(pokemon, 10), parseInt(movie,10), parseInt(tv, 10), parseInt(books, 10), parseInt(soccer, 10));
       
       var newFriend = {
         name: $("#name").val().trim(),
