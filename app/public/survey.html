@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -21,52 +22,51 @@
         <input type="text" class="form-control" aria-label="Sizing example input" id="photo" aria-describedby="inputGroup-sizing-sm">
         <hr>
         <h2>Question 1</h2>
-        <p>What is your favorite Pokemon</p>
+        <p>How much do you like Pokemon</p>
         <select class="custom-select" id="pokemon">
                 <option selected>Choose...</option>
-                <option value="1">Pikachu</option>
-                <option value="2">Charmander</option>
-                <option value="3">Squirtle</option>
+                <option value="1">Nothing...(1)</option>
+                <option value="2">Meh...(2)</option>
+                <option value="3">I love it...(3)</option>
               </select>
 
               <h2>Question 2</h2>
-        <p>What is your favorite movie</p>
+        <p>Do you like watching horror movies?</p>
         <select class="custom-select" id="movie">
                 <option selected>Choose...</option>
-                <option value="1">Star Wars</option>
-                <option value="2">Lord of the rings</option>
-                <option value="3">Avatar</option>
+                <option value="1">Nothing...(1)</option>
+                <option value="2">Meh...(2)</option>
+                <option value="3">I love it...(3)</option>
               </select>
 
               <h2>Question 3</h2>
-        <p>What is your favorite Tv Show</p>
-        <select class="custom-select" id="tv">
+          <p>What do you think about friends</p>
+            <select class="custom-select" id="tv">
                 <option selected>Choose...</option>
-                <option value="1">Friends</option>
-                <option value="2">The Office</option>
-                <option value="3">How I met your mother</option>
+                <option value="1">Nothing...(1)</option>
+                <option value="2">Meh...(2)</option>
+                <option value="3">I love it...(3)</option>
               </select>
 
               <h2>Question 4</h2>
-        <p>What is your favorite Cellphone</p>
+        <p>Do you like reading books?</p>
         <select class="custom-select" id="cellphone">
                 <option selected>Choose...</option>
-                <option value="1">Apple</option>
-                <option value="2">Samsung</option>
-                <option value="3">Lg</option>
+                <option value="1">Nothing...(1)</option>
+                <option value="2">Meh...(2)</option>
+                <option value="3">I love it...(3)</option>
               </select>
 
-              <button type="button" class="btn btn-primary btn-lg btn-block mb-5 mt-5">Send Answers</button>
+              <button type="button" class="btn btn-primary btn-lg btn-block mb-5 mt-5" data-toggle="modal" data-target="#exampleModal">Send Answers</button>
 
               <a href="/api/friends" target="__blank">Api List | </a>
               <a href="#">Github Repo</a>
     </div>
-
-    <script>
-
-
     
+    <script>
+      
     $(".btn").on("click", function(event) {
+      
       event.preventDefault();
       friendsArray = [];
       var pokemon = $("#pokemon").val().trim();
@@ -75,10 +75,6 @@
       var cellphone = $("#cellphone").val().trim();
 
       friendsArray.push(parseInt(pokemon, 10), parseInt(movie,10), parseInt(tv, 10), parseInt(cellphone, 10));
-
-      
-
-
       
       var newFriend = {
         name: $("#name").val().trim(),
@@ -89,20 +85,49 @@
       console.log(JSON.stringify(friendsArray));
      
       console.log(JSON.stringify(newFriend));
+      
 
       $.post("/api/friends", newFriend)
       .then(function(data) {
         
-        alert("added friend");
       });
 
-       
+      $.ajax({url: "api/nofriends", success: function(result){
+     var modal = (result[result.length-1].name);
+     var photo = (result[result.length-1].photo);
+
+     $(".modal-body").text(modal);
+     $(".modal-body").append(`<p><img src="${photo}" heigth="250" width="250"></p>`);
+
+    }});
+
       
+    
+
+
     });
 
-
-    
     </script>
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Your best friend is</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal"">Nice!</button>
+        </div>
+      </div>
+    </div>
+  </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   

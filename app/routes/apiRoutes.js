@@ -1,4 +1,5 @@
 var friends = require("../data/friends");
+var nofriends = require("../data/nofriends");
 var express = require("express");
 
 
@@ -7,6 +8,12 @@ module.exports = function(app) {
 app.get("/api/friends", function(req, res) {
     return res.json(friends);
 });
+
+app.get("/api/nofriends", function(req, res) {
+    return res.json(nofriends);
+});
+
+
 
 app.get("/api/friends/:friend", function(req, res) {
         var chosen = req.params.friend;
@@ -28,19 +35,23 @@ app.post("/api/friends", function(req,res) {
 
     newFriend.scores = newFriend.scores.map(Number);
 
-
     friends.push(newFriend);
+    
 
     res.json(newFriend);
 
         var total = 0;
         var total2 = 0;
         var total3 = 0;
+        var bestFriend = [];
+
     for (var i=0;i<friends.length;i++) {
         if (friends[0].scores[i] > newFriend.scores[i]) {
             total += friends[0].scores[i] - newFriend.scores[i];
+            
         } else if (friends[0].scores[i] < newFriend.scores[i]) {
             total += newFriend.scores[i] - friends[0].scores[i] 
+            
         }
     }
     console.log("1 "+total);
@@ -48,8 +59,10 @@ app.post("/api/friends", function(req,res) {
     for (var i=0;i<friends.length;i++) {
     if (friends[1].scores[i] > newFriend.scores[i]) {
         total2 += friends[1].scores[i] - newFriend.scores[i];
+       
     } else if (friends[1].scores[i] < newFriend.scores[i]) {
-        total += newFriend.scores[i] - friends[1].scores[i] 
+        total2 += newFriend.scores[i] - friends[1].scores[i] 
+       
     }
 }
 console.log("2 "+total2);
@@ -57,36 +70,35 @@ console.log("2 "+total2);
 for (var i=0;i<friends.length;i++) {
     if (friends[2].scores[i] > newFriend.scores[i]) {
         total3 += friends[2].scores[i] - newFriend.scores[i];
+       
     } else if (friends[2].scores[i] < newFriend.scores[i]){
-        total += newFriend.scores[i] - friends[2].scores[i] 
+        total3 += newFriend.scores[i] - friends[2].scores[i] 
+       
     }
 }
 console.log("3 "+total3);
 
-    
+bestFriend.push(total, total2, total3);
 
 
+var min = Math.min.apply(Math, bestFriend);
+console.log(`Min num is ${min}`);
 
+    if (min == total) {
+        var bff = {name: `${friends[0].name}`,
+                   photo: `${friends[0].photo}`}
+    } else if (min == total2) {
+        var bff = {name: `${friends[1].name}`,
+                    photo: `${friends[1].photo}`}
+    } else if (min == total3) {
+        var bff = {name: `${friends[2].name}`,
+                     photo: `${friends[2].photo}`}
+    }
+nofriends.push(bff);
+console.log(bff);
 
-    // compare(newFriend, friends);
-
-    // function compare (arr1, arr2) {
-    //   var newArray = [];
-    //   if (arr1.scores[0] > arr2[0].scores[0]) {
-    //       arr1.scores[0] - arr2[0].scores[0];
-    //       newArray.push(arr1);
-    //   } else if (arr1.scores[0] < arr2[0].scores[0]) { 
-    //       arr2[0].scores[0] - arr10.scores[0];
-    //       newArray.push(arr2);
-    //   }
-    //   console.log(newArray);
-    // }
-
-    
-
-  
-  
 });
+
 
 
 
