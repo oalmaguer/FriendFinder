@@ -8,7 +8,7 @@
 * heroku 
 * jquery.
 
-It search through an array to let you know who are you most compatible with. I still have a lot of things to improve but I am really happy with the result.
+It searches through an array to let you know who are you most compatible with. I still have a lot of things to improve but I am really happy with the result.
 To start just click the blue button to go to the survey page and then submit your answers. Through some logic the program will calculate who is your best match and
 let you know with a boostrap modal.
 
